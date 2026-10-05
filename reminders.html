@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⏰ Напоминания — PlantCatalog</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">🌿 PlantCatalog</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Растения</a></li>
+        <li><a href="care.html">Уход</a></li>
+        <li><a href="collection.html">Коллекция</a></li>
+        <li><a href="reminders.html" class="active">Напоминания</a></li>
+    </ul>
+</nav>
+
+<header class="hero hero-small">
+    <h1>⏰ Напоминания</h1>
+    <p>Не забудьте полить и удобрить ваши растения</p>
+</header>
+
+<main class="container">
+
+    <div class="collection-info">
+        <h3>📝 Шаблон для заметок</h3>
+        <p style="text-align:left; max-width:500px; margin:1rem auto 0; font-family:monospace; background:var(--green-bg); padding:1rem; border-radius:8px;">
+            ☐ Понедельник — полить Монстеру<br>
+            ☐ Среда — опрыскать Калатею<br>
+            ☐ Пятница — полить Сансевиерию<br>
+            ☐ 1-е число — удобрить все растения<br>
+             Весна — пересадка
+        </p>
+    </div>
+
+    <h2 style="color:var(--green-dark); margin-bottom:1.5rem;">Пример расписания на неделю</h2>
+
+    <div class="reminders-list">
+
+        <div class="reminder-item overdue">
+            <div class="reminder-info">
+                <h3>💧 Полив — Монстера «Боря»</h3>
+                <p>⚠️ Просрочено — нужно было вчера</p>
+            </div>
+        </div>
+
+        <div class="reminder-item upcoming">
+            <div class="reminder-info">
+                <h3> Опрыскивание — Калатея</h3>
+                <p>📌 Сегодня</p>
+            </div>
+        </div>
+
+        <div class="reminder-item">
+            <div class="reminder-info">
+                <h3>💧 Полив — Сансевиерия «Колючка»</h3>
+                <p>📅 Завтра</p>
+            </div>
+        </div>
+
+        <div class="reminder-item">
+            <div class="reminder-info">
+                <h3>🧪 Удобрение — все растения</h3>
+                <p> Через 3 дня (1-е число)</p>
+            </div>
+        </div>
+
+        <div class="reminder-item done">
+            <div class="reminder-info">
+                <h3>💧 Полив — Алоэ «Доктор»</h3>
+                <p>✅ Выполнено сегодня утром</p>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>© 2026 PlantCatalog — Ваш зелёный помощник 🌱</p>
+</footer>
+
+</body>
+</html>
