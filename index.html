@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Каталог комнатных растений</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">🌿 PlantCatalog</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Растения</a></li>
+            <li><a href="care.html">Уход</a></li>
+            <li><a href="collection.html">Коллекция</a></li>
+            <li><a href="reminders.html">Напоминания</a></li>
+        </ul>
+        <button class="burger" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-gif">
+                <img src="images/polar_bear.gif" alt="pulling">
+            </div>
+            <div class="ticker-item">Автор сайта: Смолякова Вероника</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Знаете ли вы? Растения снижают уровень стресса на 37%</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Поливайте растения утром — так они лучше усваивают влагу</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Монстера может вырасти до 3 метров в домашних условиях</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Большинство растений любят яркий рассеянный свет, а не прямые лучи</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Папоротники отлично увлажняют воздух в комнате</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Удобряйте растения только в период роста — весной и летом</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+        </div>
+    </div>
+
+    <header class="hero">
+        <h1>Каталог комнатных растений</h1>
+        <p>Найдите идеальное растение для вашего дома</p>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Поиск растений..." oninput="filterPlants()">
+        </div>
+    </header>
+
+    <main class="main-layout">
+        <!-- Левый сайдбар -->
+        <aside class="sidebar">
+            <h3>🌟 Популярное</h3>
+            <div class="sidebar-item">🌿 Монстера</div>
+            <div class="sidebar-item">🌵 Сансевиерия</div>
+            <div class="sidebar-item">🌳 Фикус</div>
+    
+            <h3 style="margin-top:1.5rem;">📊 Статистика</h3>
+            <div class="sidebar-item">Всего растений: <strong>10</strong></div>
+            <div class="sidebar-item">В коллекции: <strong id="sidebarCount">0</strong></div>
+        </aside>
+    
+        <!-- Центральный контент -->
+        <div class="main-content">
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="easy">Лёгкий уход</button>
+                <button class="filter-btn" data-filter="medium">Средний</button>
+                <button class="filter-btn" data-filter="hard">Сложный</button>
+                <button class="filter-btn" data-filter="pet-safe">Безопасно для животных</button>
+            </div>
+    
+            <div class="plant-grid" id="plantGrid"></div>
+        </div>
+    
+        <!-- Правый сайдбар -->
+        <aside class="sidebar">
+            <h3>💡 Совет дня</h3>
+            <div class="sidebar-item" id="dailyTip">
+                Поливайте растения утром — так они лучше усваивают влагу
+            </div>
+            <h3 style="margin-top:1.5rem;">Быстрые действия</h3>
+            <a href="collection.html" class="sidebar-item" style="text-decoration:none;color:var(--green-mid);display:block;">
+                📋 Моя коллекция
+        </a>
+        <a href="reminders.html" class="sidebar-item" style="text-decoration:none;color:var(--green-mid);display:block;">
+                ⏰ Напоминания
+        </a>
+        </aside>
+    </main>
+
+    <footer>
+        <p>© 2026 PlantCatalog — Ваш зелёный помощник </p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPlantGrid(plants);
+            setupFilters();
+            renderCollection();
+        });
+    </script>
+</body>
+</html>

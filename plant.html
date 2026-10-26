@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Растение — PlantCatalog</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+    <!-- Модальное окно добавления в коллекцию -->
+    <div class="modal-overlay" id="addModal">
+        <div class="modal">
+            <h2>➕ Добавить растение в коллекцию</h2>
+            <form id="addPlantForm">
+                <label>Название растения:
+                    <input type="text" id="addPlantName" readonly style="background:#f0f0f0;">
+                </label>
+                <label>Никнейм (как вы его называете):
+                    <input type="text" id="addPlantNickname" placeholder="Например: Фикус Боря">
+                </label>
+                <label>Дата приобретения:
+                    <input type="date" id="addPlantDate">
+                </label>
+                <label>Местоположение:
+                    <input type="text" id="addPlantLocation" placeholder="Например: Подоконник на кухне">
+                </label>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn-primary">Добавить</button>
+                    <button type="button" class="btn-secondary" onclick="closeAddModal()">Отмена</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const id = parseInt(params.get('id'));
+            renderPlantDetail(id);
+            setupAddForm(id);
+        });
+    </script>
+    
+<body>
+    <nav class="navbar">
+        <div class="logo">🌿 PlantCatalog</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Растения</a></li>
+            <li><a href="care.html">Уход</a></li>
+            <li><a href="collection.html">Коллекция</a></li>
+            <li><a href="reminders.html">Напоминания</a></li>
+        </ul>
+        <button class="burger" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <main class="container plant-detail" id="plantDetail">
+        <!-- Заполняется через JS -->
+    </main>
+
+    <footer>
+        <p>© 2026 PlantCatalog — Ваш зелёный помощник </p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const id = parseInt(params.get('id'));
+            renderPlantDetail(id);
+        });
+    </script>
+</body>
+</html>

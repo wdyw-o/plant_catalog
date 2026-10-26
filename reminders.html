@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Напоминания — PlantCatalog</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">🌿 PlantCatalog</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Растения</a></li>
+            <li><a href="care.html">Уход</a></li>
+            <li><a href="collection.html">Коллекция</a></li>
+            <li><a href="reminders.html" class="active">Напоминания</a></li>
+        </ul>
+        <button class="burger" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-gif">
+                <img src="images/polar_bear.gif" alt="pulling">
+            </div>
+            <div class="ticker-item">Автор сайта: Смолякова Вероника</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Знаете ли вы? Растения снижают уровень стресса на 37%</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Поливайте растения утром — так они лучше усваивают влагу</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Монстера может вырасти до 3 метров в домашних условиях</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Большинство растений любят яркий рассеянный свет, а не прямые лучи</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Папоротники отлично увлажняют воздух в комнате</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Удобряйте растения только в период роста — весной и летом</div>
+            <div class="ticker-item"><span class="sep"></span></div>
+        </div>
+    </div>
+
+    <header class="hero small-hero">
+        <h1>⏰ Напоминания</h1>
+        <p>Не забудьте полить и удобрить ваши растения</p>
+    </header>
+
+    <main class="container">
+        <div class="reminders-actions">
+            <button class="btn-primary" onclick="openReminderModal()">➕ Добавить напоминание</button>
+        </div>
+
+        <div class="reminders-list" id="remindersList">
+            <!-- Заполняется через JS -->
+        </div>
+
+        <div class="empty-state" id="emptyReminders" style="display:none;">
+            <div class="empty-icon">⏰</div>
+            <h3>Нет напоминаний</h3>
+            <p>Добавьте напоминание о поливе или удобрении!</p>
+        </div>
+    </main>
+
+    <!-- Модальное окно напоминания -->
+    <div class="modal-overlay" id="reminderModal">
+        <div class="modal">
+            <h2> Новое напоминание</h2>
+            <form id="reminderForm">
+                <label>Растение из коллекции:
+                    <select id="reminderPlant" required></select>
+                </label>
+                <label>Тип напоминания:
+                    <select id="reminderType" required>
+                        <option value="water">💧 Полив</option>
+                        <option value="fertilize">🧪 Удобрение</option>
+                        <option value="repot">🪴 Пересадка</option>
+                        <option value="prune">️ Обрезка</option>
+                        <option value="mist">💨 Опрыскивание</option>
+                    </select>
+                </label>
+                <label>Дата:
+                    <input type="date" id="reminderDate" required>
+                </label>
+                <label>Заметка:
+                    <input type="text" id="reminderNote" placeholder="Дополнительная информация">
+                </label>
+                <label>Повторять каждые (дней, 0 = без повтора):
+                    <input type="number" id="reminderRepeat" min="0" value="7">
+                </label>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn-primary">Сохранить</button>
+                    <button type="button" class="btn-secondary" onclick="closeReminderModal()">Отмена</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 PlantCatalog — Ваш зелёный помощник 🌱</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderReminders();
+            populateReminderPlantSelect();
+            checkReminders();
+        });
+    </script>
+</body>
+</html>

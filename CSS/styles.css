@@ -1,0 +1,883 @@
+/* ===== СБРОС И БАЗОВЫЕ СТИЛИ ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green-dark: #2d6a4f;
+    --green-mid: #40916c;
+    --green-light: #52b788;
+    --green-pale: #b7e4c7;
+    --green-bg: #d8f3dc;
+    --cream: #fefae0;
+    --brown: #6b4226;
+    --text: #1b4332;
+    --text-light: #555;
+    --white: #ffffff;
+    --shadow: 0 5px 19px rgba(0,0,0,0.1);
+    --shadow-hover: 0 10px 31px rgba(0,0,0,0.15);
+    --radius: 20px; 
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.125rem;     /* было 1rem (~16px → 18px) */
+    background: var(--green-bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== НАВИГАЦИЯ ===== */
+.navbar {
+    background: var(--green-dark);
+    padding: 1.25rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: var(--white);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    color: var(--green-pale);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--white);
+    background: var(--green-mid);
+}
+
+.burger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ===== HERO ===== */
+.hero {
+    background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+    color: var(--white);
+    text-align: center;
+    padding: 2rem 2.5rem;
+}
+
+.hero h1 {
+    font-size: 3.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.small-hero {
+    padding: 3.125rem 2.5rem;
+}
+
+.small-hero h1 {
+    font-size: 2.5rem; 
+}
+
+.search-box {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: var(--shadow);
+}
+
+/* ===== КОНТЕЙНЕР ===== */
+.container {
+    max-width: 1500px; 
+    margin: 0 auto;
+    padding: 2.5rem;   
+    flex: 1;
+}
+
+/* ===== ФИЛЬТРЫ ===== */
+.filter-bar {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.2rem;
+    border: 2px solid var(--green-mid);
+    background: var(--white);
+    color: var(--green-dark);
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--green-mid);
+    color: var(--white);
+}
+
+/* ===== СЕТКА РАСТЕНИЙ ===== */
+.plant-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.875rem;
+}
+
+.plant-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.plant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.plant-card-image {
+    width: 100%;
+    height: 275px;
+    object-fit: cover;
+    background: var(--green-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45.625rem;
+}
+
+.plant-card-body {
+    padding: 1.75rem;
+}
+
+.plant-card-body h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.3rem;
+    color: var(--green-dark);
+}
+
+.plant-card-body .latin-name {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.plant-card-body .difficulty {
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.difficulty {
+    display: inline-block;
+    padding: 0.3rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.difficulty-easy {
+    background: #d4edda;
+    color: #155724;
+}
+
+.difficulty-medium {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.difficulty-hard {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.plant-card-body .short-desc {
+    margin-top: 0.5rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* ===== ДЕТАЛЬНАЯ СТРАНИЦА РАСТЕНИЯ ===== */
+.plant-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    padding-top: 2rem;
+}
+
+.plant-detail-image {
+    background: var(--green-pale);
+    border-radius: var(--radius);
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10rem;
+    box-shadow: var(--shadow);
+}
+
+.plant-detail-info {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 3.125rem;
+    box-shadow: var(--shadow);
+}
+
+.plant-detail-info h1 {
+    font-size: 2.5rem;
+    color: var(--green-dark);
+    margin-bottom: 0.3rem;
+}
+
+.plant-detail-info .latin {
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.plant-detail-info .description {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.care-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.care-item {
+    background: var(--green-bg);
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.care-item .icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.care-item .label {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.care-item .value {
+    font-weight: 600;
+    color: var(--green-dark);
+}
+
+.btn-add-collection {
+    padding: 0.8rem 2rem;
+    background: var(--green-mid);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-right: 0.5rem;
+    font-weight: 500;
+}
+
+.btn-add-collection:hover {
+    background: var(--green-dark);
+}
+
+.btn-add-collection.added {
+    background: var(--green-pale);
+    color: var(--green-dark);
+}
+
+.btn-back {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: var(--green-mid);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.btn-back:hover {
+    color: var(--green-dark);
+}
+
+/* ===== СОВЕТЫ ПО УХОДУ ===== */
+.care-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: 1.5rem;
+}
+
+.care-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.care-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.care-card .care-icon {
+    font-size: 3.125rem;
+    margin-bottom: 1rem;
+}
+
+.care-card h3 {
+    color: var(--green-dark);
+    margin-bottom: 0.5rem;
+}
+
+.care-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* ===== КОЛЛЕКЦИЯ ===== */
+.collection-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.collection-count {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.btn-primary {
+    padding: 0.8rem 1.5rem;
+    background: var(--green-mid);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background: var(--green-dark);
+}
+
+.btn-secondary {
+    padding: 0.8rem 1.5rem;
+    background: #eee;
+    color: var(--text);
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-secondary:hover {
+    background: #ddd;
+}
+
+.btn-danger {
+    padding: 0.5rem 1rem;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.btn-danger:hover {
+    background: #c0392b;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-light);
+}
+
+.empty-state .empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+    margin-bottom: 0.5rem;
+}
+
+/* ===== НАПОМИНАНИЯ ===== */
+.reminders-actions {
+    margin-bottom: 2rem;
+}
+
+.reminders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.reminder-item {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.875rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    transition: var(--transition);
+}
+
+.reminder-item.overdue {
+    border-left: 4px solid #e74c3c;
+}
+
+.reminder-item.upcoming {
+    border-left: 4px solid #f39c12;
+}
+
+.reminder-item.done {
+    border-left: 4px solid var(--green-light);
+    opacity: 0.7;
+}
+
+.reminder-info h3 {
+    color: var(--green-dark);
+    margin-bottom: 0.3rem;
+}
+
+.reminder-info p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.reminder-date {
+    font-weight: 600;
+    color: var(--green-dark);
+}
+
+.reminder-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-done {
+    padding: 0.5rem 1rem;
+    background: var(--green-light);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.btn-done:hover {
+    background: var(--green-mid);
+}
+
+/* ===== МОДАЛЬНЫЕ ОКНА ===== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    max-width: 625px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-hover);
+}
+
+.modal h2 {
+    color: var(--green-dark);
+    margin-bottom: 1.75rem;
+}
+
+.modal label {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.modal input,
+.modal select {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 2px solid var(--green-pale);
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.modal input:focus,
+.modal select:focus {
+    border-color: var(--green-mid);
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* ===== ФУТЕР ===== */
+footer {
+    background: var(--green-dark);
+    color: var(--green-pale);
+    text-align: center;
+    padding: 1.875rem;
+    margin-top: auto;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+    @media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--green-dark);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .plant-detail {
+        grid-template-columns: 1fr;
+    }
+
+    .plant-detail-image {
+        height: 250px;
+        font-size: 5rem;
+    }
+
+    .care-info {
+        grid-template-columns: 1fr;
+    }
+
+    /* Адаптивная сетка каталога */
+    .plant-grid {
+        grid-template-columns: repeat(2, 1fr);  /* 2 колонки на планшете */
+    }
+}
+
+/* Дополнительный брейкпоинт для мобильных */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--green-dark);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }    
+        .plant-detail {
+            grid-template-columns: 1fr;
+        }
+    
+        .plant-detail-info {
+            padding: 1.5rem;
+        }
+    
+        .plant-detail-image {
+            height: 250px;
+            font-size: 5rem;
+        }
+    
+        .care-info {
+            grid-template-columns: 1fr;
+        }
+    
+        .plant-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+/* Дополнительный брейкпоинт для мобильных */
+@media (max-width: 480px) {
+    .plant-grid {
+        grid-template-columns: 1fr;  /* 1 колонка на телефоне */
+    }
+}
+
+/* ===== УВЕДОМЛЕНИЕ ===== */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--green-mid);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-hover);
+    z-index: 300;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.plant-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.plant-detail-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--radius);
+}
+
+/* Фолбэк: если картинка не загрузилась — показать эмодзи */
+.plant-card-image img:not([src]),
+.plant-card-image img[src=""] {
+    display: none;
+}
+
+/* ===== БЕГУЩАЯ СТРОКА ===== */
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    background: var(--green-dark);
+    color: var(--green-pale);
+    padding: 0.8rem 0;
+    border-bottom: 2px solid var(--green-mid);
+    position: relative;
+    z-index: 99;
+}
+
+.ticker {
+    display: flex;
+    width: max-content;   /* было fit-content */
+    animation: ticker 60s linear infinite;
+    white-space: nowrap;
+}
+
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.ticker-item .sep {
+    color: var(--green-light);
+    margin: 0 1rem;
+    font-size: 1.2rem;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(100vw);   /* начинается за правым краем экрана */
+    }
+    100% {
+        transform: translateX(-100%);   /* уходит за левый край */
+    }
+}
+
+/* GIF-тягач */
+.ticker-gif {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.ticker-gif img {
+    height: 60px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* Сайдбары и раскладка */
+.main-layout {
+    display: grid;
+    grid-template-columns: 350px 1fr 350px;
+    gap: 0;                   /* убираем gap между колонками */
+    max-width: 100%;
+    margin: 0;
+    padding: 2rem 0;
+    align-items: start;
+}
+
+.sidebar {
+    background: var(--white);
+    border-radius: 0;         /* убираем скругление у краёв */
+    padding: 1.5rem;
+    box-shadow: none;         /* убираем тень у краёв */
+    height: fit-content;
+    position: sticky;
+    top: 5rem;
+}
+
+.sidebar:first-child {
+    border-radius: 0 var(--radius) var(--radius) 0;  /* скругление только справа */
+    margin-right: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.sidebar:last-child {
+    border-radius: var(--radius) 0 0 var(--radius);  /* скругление только слева */
+    margin-left: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.main-content {
+    min-width: 0;
+    padding: 0 1rem;
+}
+
+/* Фильтры по центру */
+.filter-bar {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+/* Сетка растений */
+.plant-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        display: none;
+    }
+    .plant-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .plant-grid {
+        grid-template-columns: 1fr;
+    }
+}

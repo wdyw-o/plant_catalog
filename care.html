@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 Уход за растениями — PlantCatalog</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">🌿 PlantCatalog</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Растения</a></li>
+            <li><a href="care.html" class="active">Уход</a></li>
+            <li><a href="collection.html">Коллекция</a></li>
+            <li><a href="reminders.html">Напоминания</a></li>
+        </ul>
+        <button class="burger" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-gif">
+                <img src="images/polar_bear.gif" alt="pulling">
+            </div>
+            <div class="ticker-item">Автор сайта: Смолякова Вероника</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Знаете ли вы? Растения снижают уровень стресса на 37%</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Поливайте растения утром — так они лучше усваивают влагу</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Монстера может вырасти до 3 метров в домашних условиях</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Большинство растений любят яркий рассеянный свет, а не прямые лучи</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Папоротники отлично увлажняют воздух в комнате</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Удобряйте растения только в период роста — весной и летом</div>
+            <div class="ticker-item"><span class="sep"></span></div>
+        </div>
+    </div>
+
+    <header class="hero small-hero">
+        <h1>💡 Советы по уходу</h1>
+        <p>Всё, что нужно знать для здоровых растений</p>
+    </header>
+
+    <main class="container">
+        <div class="care-grid" id="careGrid">
+            <!-- Заполняется через JS -->
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 PlantCatalog — Ваш зелёный помощник 🌱</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', renderCareTips);
+    </script>
+</body>
+</html>

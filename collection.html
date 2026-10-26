@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 Моя коллекция — PlantCatalog</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">🌿 PlantCatalog</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Растения</a></li>
+            <li><a href="care.html">Уход</a></li>
+            <li><a href="collection.html" class="active">Коллекция</a></li>
+            <li><a href="reminders.html">Напоминания</a></li>
+        </ul>
+        <button class="burger" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-gif">
+                <img src="images/polar_bear.gif" alt="pulling">
+            </div>
+            <div class="ticker-item">Автор сайта: Смолякова Вероника</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Знаете ли вы? Растения снижают уровень стресса на 37%</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Поливайте растения утром — так они лучше усваивают влагу</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Монстера может вырасти до 3 метров в домашних условиях</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Большинство растений любят яркий рассеянный свет, а не прямые лучи</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Папоротники отлично увлажняют воздух в комнате</div>
+            <div class="ticker-item"><span class="sep">🌿</span></div>
+            <div class="ticker-item">Удобряйте растения только в период роста — весной и летом</div>
+            <div class="ticker-item"><span class="sep"></span></div>
+        </div>
+    </div>
+
+    <header class="hero small-hero">
+        <h1> Моя коллекция</h1>
+        <p>Растения, которые живут у вас дома</p>
+    </header>
+
+    <main class="container">
+        <div class="collection-actions">
+            <button class="btn-primary" onclick="openAddModal()">➕ Добавить растение</button>
+            <span class="collection-count" id="collectionCount">0 растений</span>
+        </div>
+
+        <div class="plant-grid" id="collectionGrid">
+            <!-- Заполняется через JS -->
+        </div>
+
+        <div class="empty-state" id="emptyState" style="display:none;">
+            <div class="empty-icon">🌱</div>
+            <h3>Коллекция пуста</h3>
+            <p>Добавьте первое растение, чтобы начать!</p>
+        </div>
+    </main>
+
+    <!-- Модальное окно добавления -->
+    <div class="modal-overlay" id="addModal">
+        <div class="modal">
+            <h2>➕ Добавить растение в коллекцию</h2>
+            <form id="addPlantForm">
+                <label>Название растения:
+                    <select id="addPlantSelect" required></select>
+                </label>
+                <label>Никнейм (как вы его называете):
+                    <input type="text" id="addPlantNickname" placeholder="Например: Фикус Боря">
+                </label>
+                <label>Дата приобретения:
+                    <input type="date" id="addPlantDate">
+                </label>
+                <label>Местоположение:
+                    <input type="text" id="addPlantLocation" placeholder="Например: Подоконник на кухне">
+                </label>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn-primary">Добавить</button>
+                    <button type="button" class="btn-secondary" onclick="closeAddModal()">Отмена</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 PlantCatalog — Ваш зелёный помощник 🌱</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCollection();
+            populatePlantSelect();
+        });
+    </script>
+</body>
+</html>
