@@ -45,11 +45,49 @@
         <p>Всё, что нужно знать для здоровых растений</p>
     </header>
 
-    <main class="container">
-        <div class="care-grid" id="careGrid">
-            <!-- Заполняется через JS -->
+<main class="main-layout">
+    <!-- Левый сайдбар -->
+    <aside class="sidebar">
+        <h3>📅 Календарь ухода</h3>
+        <div class="sidebar-item">🌸 <strong>Весна</strong><br>Пересадка, начало подкормки</div>
+        <div class="sidebar-item">☀️ <strong>Лето</strong><br>Активный полив, удобрение</div>
+        <div class="sidebar-item">🍂 <strong>Осень</strong><br>Сокращение полива</div>
+        <div class="sidebar-item">❄️ <strong>Зима</strong><br>Период покоя, минимум полива</div>
+
+        <h3 style="margin-top:1.5rem;">🔗 Быстрые ссылки</h3>
+        <a href="index.html" class="sidebar-item" style="text-decoration:none;color:var(--green-mid);display:block;">
+            🌿 Каталог растений
+        </a>
+        <a href="collection.html" class="sidebar-item" style="text-decoration:none;color:var(--green-mid);display:block;">
+            📋 Моя коллекция
+        </a>
+        <a href="reminders.html" class="sidebar-item" style="text-decoration:none;color:var(--green-mid);display:block;">
+            ⏰ Напоминания
+        </a>
+    </aside>
+
+    <!-- Центральный контент -->
+    <div class="main-content">
+        <div class="care-grid" id="careGrid"></div>
+    </div>
+
+    <!-- Правый сайдбар -->
+    <aside class="sidebar">
+        <h3>⚠️ Частые ошибки</h3>
+        <div class="sidebar-item">💧 <strong>Перелив</strong> — главная причина гибели растений</div>
+        <div class="sidebar-item">☀️ <strong>Прямые лучи</strong> — обжигают листья</div>
+        <div class="sidebar-item">🌡️ <strong>Сквозняки</strong> — стресс для тропических растений</div>
+        <div class="sidebar-item">🪴 <strong>Тесный горшок</strong> — тормозит рост</div>
+
+        <h3 style="margin-top:1.5rem;">💡 Знаете ли вы?</h3>
+        <div class="sidebar-item">
+            Растения снижают уровень стресса на 37% и повышают продуктивность на 15%
         </div>
-    </main>
+        <div class="sidebar-item">
+            Хлорофитум очищает воздух лучше большинства комнатных растений
+        </div>
+    </aside>
+</main>
 
     <footer>
         <p>© 2026 PlantCatalog — Ваш зелёный помощник 🌱</p>
